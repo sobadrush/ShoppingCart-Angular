@@ -7,6 +7,8 @@ import { MySidebarComponent } from './my-sidebar/my-sidebar.component';
 import { MyHeaderComponent } from './my-header/my-header.component';
 import { MyPoemComponent } from './my-poem/my-poem.component';
 import { MyHomepageComponent } from './my-homepage/my-homepage.component';
+import { MyPoem2Component } from './my-poem2/my-poem2.component';
+import { MyPoem3Component } from './my-poem3/my-poem3.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { MyHomepageComponent } from './my-homepage/my-homepage.component';
     MySidebarComponent,
     MyHeaderComponent,
     MyPoemComponent,
-    MyHomepageComponent
+    MyHomepageComponent,
+    MyPoem2Component,
+    MyPoem3Component
   ],
   imports: [
     BrowserModule,

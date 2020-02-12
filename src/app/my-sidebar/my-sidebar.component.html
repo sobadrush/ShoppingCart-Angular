@@ -12,19 +12,20 @@
           </li>
 
           <li class="active">
-              <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">詩詞賦</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
+              <a href="#poemSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">詩詞賦(routerLink)</a>
+              <ul class="collapse list-unstyled" id="poemSubmenu">
                   <li>
-                      <a href="javascript:void(0);">Home 1</a>
+                      <a href="javascript:void(0);" [routerLink]="['/poems']">後赤壁賦</a>
                   </li>
                   <li>
-                      <a href="javascript:void(0);">Home 2</a>
+                      <a href="javascript:void(0);" [routerLink]="['/poems/poem1']">滿江紅</a>
                   </li>
                   <li>
-                      <a href="javascript:void(0);">Home 3</a>
+                      <a href="javascript:void(0);" [routerLink]="['/poems/poem2']">正氣歌</a>
                   </li>
               </ul>
           </li>
+
           <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
               <ul class="collapse list-unstyled" id="pageSubmenu">
