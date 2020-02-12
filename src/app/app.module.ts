@@ -9,6 +9,7 @@ import { MyPoemComponent } from './my-poem/my-poem.component';
 import { MyHomepageComponent } from './my-homepage/my-homepage.component';
 import { MyPoem2Component } from './my-poem2/my-poem2.component';
 import { MyPoem3Component } from './my-poem3/my-poem3.component';
+import { RouterParamTestComponent } from './router-param-test/router-param-test.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MyPoem3Component } from './my-poem3/my-poem3.component';
     MyPoemComponent,
     MyHomepageComponent,
     MyPoem2Component,
-    MyPoem3Component
+    MyPoem3Component,
+    RouterParamTestComponent
   ],
   imports: [
     BrowserModule,
