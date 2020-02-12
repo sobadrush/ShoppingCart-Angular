@@ -1,0 +1,31 @@
+<p>shoppingmall works!</p>
+
+
+{{productsList | json}}
+
+<hr/>
+<hr/>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+
+<table class="table table-hover" border="1">
+  <thead>
+    <tr class="table-info">
+      <th scope="col">商品編號</th>
+      <th scope="col">商品名稱</th>
+      <th scope="col">商品價格</th>
+      <th scope="col">商品庫存</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of productsList; let idx = index;">
+      <td>{{idx + 1}}</td>
+      <td [ngStyle]="{ 'font-size' : item.quantity <= 10 ? '20px' : '' }" (mouseover)="test()">
+        {{item.prodName}}
+        <span style="color:red;" *ngIf="item.quantity <= 10">熱銷!!!</span>
+      </td>
+      <td>{{item.prodPrice}} 元</td>
+      <td>{{item.quantity}}</td>
+    </tr>
+  </tbody>
+</table>

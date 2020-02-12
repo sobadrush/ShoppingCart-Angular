@@ -5,6 +5,7 @@ import { MyHomepageComponent } from './my-homepage/my-homepage.component';
 import { MyPoem2Component } from './my-poem2/my-poem2.component';
 import { MyPoem3Component } from './my-poem3/my-poem3.component';
 import { RouterParamTestComponent } from './router-param-test/router-param-test.component';
+import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path : 'poem2' , component : MyPoem3Component}, // 正氣歌
   ]
 },
-  { path: 'cartoon/:id', component : RouterParamTestComponent}, // 卡通頻道
+  { path: 'cartoon/:id', component : RouterParamTestComponent}, // 測試路由參數的元件
+  { path: 'shopping', component : ShoppingmallComponent}, // 購物商成
   { path: '**', redirectTo: '/HomePage', pathMatch: 'full'}, // 萬用路由(一定要放在最後) → 轉到 HomePage → 達到防呆效果
 ];
 

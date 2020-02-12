@@ -10,6 +10,7 @@ import { MyHomepageComponent } from './my-homepage/my-homepage.component';
 import { MyPoem2Component } from './my-poem2/my-poem2.component';
 import { MyPoem3Component } from './my-poem3/my-poem3.component';
 import { RouterParamTestComponent } from './router-param-test/router-param-test.component';
+import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RouterParamTestComponent } from './router-param-test/router-param-test.
     MyHomepageComponent,
     MyPoem2Component,
     MyPoem3Component,
-    RouterParamTestComponent
+    RouterParamTestComponent,
+    ShoppingmallComponent
   ],
   imports: [
     BrowserModule,
