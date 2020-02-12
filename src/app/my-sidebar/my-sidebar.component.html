@@ -1,27 +1,29 @@
   <!-- Sidebar  -->
   <nav id="sidebar" style="height:100%;">
       <div class="sidebar-header">
-          <h3>Bootstrap Sidebar</h3>
+          <h3 [routerLink]="['/HomePage']" [ngStyle]="{'cursor': 'pointer', 'color' : 'orange', 'font-family':'Microsoft JhengHei'}">回首頁</h3>
       </div>
 
       <ul class="list-unstyled components">
-          <p>Dummy Heading</p>
+          <p>Welcome!!</p>
+
+          <li>
+              <a href="javascript:void(0);" routerLink="/poems">後赤壁賦</a>
+          </li>
+
           <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+              <a href="javascript:void(0);" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">詩詞賦</a>
               <ul class="collapse list-unstyled" id="homeSubmenu">
                   <li>
-                      <a href="#">Home 1</a>
+                      <a href="javascript:void(0);">Home 1</a>
                   </li>
                   <li>
-                      <a href="#">Home 2</a>
+                      <a href="javascript:void(0);">Home 2</a>
                   </li>
                   <li>
-                      <a href="#">Home 3</a>
+                      <a href="javascript:void(0);">Home 3</a>
                   </li>
               </ul>
-          </li>
-          <li>
-              <a href="#">About</a>
           </li>
           <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
