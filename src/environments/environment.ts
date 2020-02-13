@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  productsList : [
+    { 'prodName' : 'Gogoro', 'prodPrice' : '78500', 'quantity' : '22' },
+    { 'prodName' : 'SWITCH電力加強版', 'prodPrice' : '11500', 'quantity' : '7' },
+    { 'prodName' : 'IPhone11', 'prodPrice' : '36500', 'quantity' : '13' },
+  ]
 };
 
 /*
