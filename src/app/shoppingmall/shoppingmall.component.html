@@ -20,7 +20,7 @@
   <tbody>
     <tr *ngFor="let item of productsList; let idx = index;">
       <td>{{idx + 1}}</td>
-      <td [ngStyle]="{ 'font-size' : item.quantity <= 10 ? '20px' : '' }" (mouseover)="test()">
+      <td #mTd [ngStyle]="{ 'font-size' : item.quantity <= 10 ? '20px' : '' }" (mouseenter)="doHighlight($event, item)" (mouseleave)="clearHighlight(mTd)">
         {{item.prodName}}
         <span style="color:red;" *ngIf="item.quantity <= 10">熱銷!!!</span>
       </td>

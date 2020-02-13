@@ -33,8 +33,22 @@ export class ShoppingmallComponent implements OnInit {
     console.log(` >>> this.productsList `, this.productsList);
   }
 
-  test() : void {
-    alert(`============ 熱銷商品 =============`)
+  doHighlight(_event: MouseEvent, _item: any) : void {
+    // alert(`============ 熱銷商品 =============`);
+    // console.log('_event >>> ' , _event);
+    // console.log('_event.target >>> ' , _event.target);
+
+    // console.log('_item >>> ' , _item);
+    if (_item.quantity < 10) {
+      let $td : HTMLTableCellElement = <HTMLTableCellElement> _event.target;
+      // console.log("$td >>> " , $td);
+      $td.style.fontSize = '30px';
+    }
+
+  }
+
+  clearHighlight($td : HTMLTableCellElement) : void {
+    $td.style.fontSize = '20px';
   }
 
 }
