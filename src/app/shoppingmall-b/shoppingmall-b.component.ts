@@ -30,10 +30,10 @@ export class ShoppingmallBComponent implements OnInit {
     if (_prodId.toString().trim() == '') {
 
       // 查全部 json-server上的資料 ( ProductService )
-      this.productService.getProducts().subscribe((cbData: ProductVO[]) => {
-        // console.log('cbData >>> ' , cbData);
+      this.productService.getProducts().subscribe((res: ProductVO[]) => {
+        // console.log('res >>> ' , res);
         this.productsList = [];
-        this.productsList = cbData;
+        this.productsList = res;
       });
 
     } else {
@@ -41,12 +41,12 @@ export class ShoppingmallBComponent implements OnInit {
       // 查json-server上的資料By Id ( ProductService )
       this.productService.getProductById(_prodId)
         .subscribe(
-          (cbData: ProductVO) => {
+          (res: Response) => {
             // console.log('cbData >>> ', cbData);
             this.productsList = [];
-            this.productsList.push(cbData);
+            this.productsList.push(res);
           },
-          (err) => {
+          (err: any) => {
             // console.error('err >>>' , err);
             alert(`查無商品 : id = ${_prodId}`);
           },
@@ -66,7 +66,7 @@ export class ShoppingmallBComponent implements OnInit {
     if (confirm(`確定刪除商品嗎?(id = ${_prodId})`)) {
       this.productService.deleteProductById(_prodId)
         .subscribe(
-          (res) => {
+          (res : Response) => {
 
             // 1.找到此prodId在array的index
             let targetIdx = this.productsList.findIndex((elem: ProductVO) => {
@@ -77,7 +77,7 @@ export class ShoppingmallBComponent implements OnInit {
             this.productsList.splice(targetIdx, 1);
 
           },
-          (err) => {
+          (err: any) => {
             // console.error('err >>>' , err);
             alert(`無商品 id = ${_prodId} 無法刪除!`);
           },
