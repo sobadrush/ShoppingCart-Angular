@@ -36,6 +36,23 @@ export class ProductService {
     );
   }
 
+  // GET
+  getProductById(prodId : Number): Observable<any> {
+    return this.httpClient.get<ProductVO>(this.targeBasetUrl + `/` + prodId)
+    .pipe(
+      retry(1), catchError(this.errorHandler)
+    );
+  }
+
+  // DELETE
+  deleteProductById(prodId : Number): Observable<any> {
+    return this.httpClient.delete<ProductVO>(this.targeBasetUrl + '/' + prodId, this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+
   // Error-Handling
   errorHandler(error) {
     let errorMessage = '';

@@ -1,1 +1,33 @@
 <p>shoppingmall-b works!</p>
+
+{{productsList | json}}
+
+<hr/><hr/>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
+
+<!-- 要使用 ngModel 需要在該 Module 中加入 FormsModule -->
+商品ID：<input type="text" name="prodIdVal" [(ngModel)]="prodIdVal"/> 雙向綁定：{{ prodIdVal }}
+<button type="button" class="btn btn-outline-primary" (click)="doQueryProduct(prodIdVal)">查詢</button>
+<button type="button" class="btn btn-outline-danger" (click)="doDeleteProduct(prodIdVal)">刪除</button>
+<br/><br/>
+
+<table class="table table-hover" border="1">
+  <thead>
+    <tr class="table-danger">
+      <th scope="col">商品編號</th>
+      <th scope="col">商品名稱</th>
+      <th scope="col">商品價格</th>
+      <th scope="col">商品庫存</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of productsList; let idx = index;">
+      <td>{{ idx + 1 }}</td>
+      <td [ngStyle]="{ 'font-size' : item.quantity <= 10 ? '20px' : '' }">{{ item.prodName }}</td>
+      <td>{{ item.prodPrice }} 元</td>
+      <td>{{ item.quantity }}</td>
+    </tr>
+  </tbody>
+</table>
+

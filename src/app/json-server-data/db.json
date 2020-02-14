@@ -1,19 +1,19 @@
 {
   "products": [
     {
-      "id" : "1",
+      "id": "1",
       "prodName": "Gogoro",
       "prodPrice": "78500",
       "quantity": "22"
     },
     {
-      "id" : "2",
+      "id": "2",
       "prodName": "SWITCH電力加強版",
       "prodPrice": "11500",
       "quantity": "7"
     },
     {
-      "id" : "3",
+      "id": "3",
       "prodName": "IPhone11",
       "prodPrice": "36500",
       "quantity": "13"
