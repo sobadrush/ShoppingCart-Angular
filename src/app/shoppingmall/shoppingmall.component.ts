@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from "../../environments/environment";
 import { FakeDataService } from '../my-services/fake-data.service';
+import { ProductService } from 'src/app/my-services/product.service';
+import { ProductVO } from '../my-value-objects/ProductVO';
 
 @Component({
   selector: 'app-shoppingmall',
@@ -12,7 +14,7 @@ export class ShoppingmallComponent implements OnInit {
   productsList : Array<Object> = [];
   selectedRowId : Number = undefined;
 
-  constructor(fakeDataService : FakeDataService) {
+  constructor(private fakeDataService : FakeDataService, private productService : ProductService) {
 
     // 【Type 1】 : 將假資料放在此元件中
     // this.productsList = [
@@ -26,8 +28,15 @@ export class ShoppingmallComponent implements OnInit {
     // this.productsList = environment.productsList;
 
     // 【Type 3】 : 將假資料放Service中 ( FakeDataService )
-    console.log('fakeDataService._productsList >>>', fakeDataService._productsList);
-    this.productsList = fakeDataService._productsList;
+    // console.log('fakeDataService._productsList >>>', fakeDataService._productsList);
+    // this.productsList = fakeDataService._productsList;
+
+    // 【Type 4】 : 查 json-server上的資料 ( ProductService )
+    this.productService.getProducts().subscribe((cbData: ProductVO[]) => {
+      // console.log('cbData >>> ' , cbData);
+      this.productsList = cbData
+    })
+
   }
 
   ngOnInit(): void {

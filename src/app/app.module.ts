@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; // for use HttpClient (ref. https://www.positronx.io/angular-8-httpclient-http-tutorial-build-consume-restful-api/)
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { MyPoem2Component } from './my-poem2/my-poem2.component';
 import { MyPoem3Component } from './my-poem3/my-poem3.component';
 import { RouterParamTestComponent } from './router-param-test/router-param-test.component';
 import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
+import { ShoppingmallBComponent } from './shoppingmall-b/shoppingmall-b.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
     MyPoem2Component,
     MyPoem3Component,
     RouterParamTestComponent,
-    ShoppingmallComponent
+    ShoppingmallComponent,
+    ShoppingmallBComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
