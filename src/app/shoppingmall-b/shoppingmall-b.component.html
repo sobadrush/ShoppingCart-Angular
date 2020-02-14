@@ -1,6 +1,6 @@
 <p>shoppingmall-b works!</p>
 
-{{productsList | json}}
+{{ productsList | json }}
 
 <hr/><hr/>
 
@@ -12,10 +12,43 @@
 <button type="button" class="btn btn-outline-danger" (click)="doDeleteProduct(prodIdVal)">刪除</button>
 <br/><br/>
 
-<table class="table table-hover" border="1">
+<hr/><hr/>
+
+<div style="border: 2px solid red; padding : 1rem; margin: 1rem;" *ngIf="(myForm.get('prodName').errors != null) || (myForm.get('prodPrice').errors != null) || (myForm.get('quantity').errors != null)">
+  <h2 [ngClass]="['error-msg']">錯誤訊息</h2>
+  <span class="error-msg" *ngIf="myForm.get('prodName').errors?.required">商品名稱為必填！</span> <br>
+  <span class="error-msg" *ngIf="myForm.get('prodPrice').errors?.required">商品售價為必填！</span> <br>
+  <span class="error-msg" *ngIf="myForm.get('quantity').errors?.required">商品庫存為必填！</span> <br>
+</div>
+
+<form [formGroup]="myForm" (ngSubmit)="doSubmit()">
+  商品名稱：<input type="text" formControlName="prodName"/><br/>
+  商品售價：<input type="text" formControlName="prodPrice"/><br/>
+  商品庫存：<input type="text" formControlName="quantity"/><br/>
+  完成後是否跳頁 ( 到 滿江紅 )?
+  是： <input type="radio" name="isRedirectToPage" value="YES" formControlName="isRedirectToPage"/> &nbsp;
+  否： <input type="radio" name="isRedirectToPage" value="NO" formControlName="isRedirectToPage"/>
+  <br/>
+  <button type="submit" class="btn btn-outline-success">新增</button>
+</form>
+
+<span style="color:rgb(40, 54, 245);">myForm.value :</span> {{ myForm.value | json }} <br>
+
+<span style="color:red;">myForm.errors :</span> <br>
+<pre>
+    {{ myForm.get('prodName').errors | json }}
+    {{ myForm.get('prodPrice').errors | json }}
+    {{ myForm.get('quantity').errors | json }}
+</pre>
+<br>
+
+<hr/><hr/>
+
+<table class="table table-hover" border="1" style="text-align: center;">
   <thead>
     <tr class="table-danger">
-      <th scope="col">商品編號</th>
+      <th scope="col">流水號</th>
+      <th scope="col">商品ID</th>
       <th scope="col">商品名稱</th>
       <th scope="col">商品價格</th>
       <th scope="col">商品庫存</th>
@@ -24,6 +57,7 @@
   <tbody>
     <tr *ngFor="let item of productsList; let idx = index;">
       <td>{{ idx + 1 }}</td>
+      <td style="color:blue;">{{ item.id }}</td>
       <td [ngStyle]="{ 'font-size' : item.quantity <= 10 ? '20px' : '' }">{{ item.prodName }}</td>
       <td>{{ item.prodPrice }} 元</td>
       <td>{{ item.quantity }}</td>

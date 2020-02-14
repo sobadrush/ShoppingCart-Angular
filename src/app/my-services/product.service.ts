@@ -53,6 +53,15 @@ export class ProductService {
     )
   }
 
+  // POST
+  createProduct(postData : ProductVO): Observable<any> {
+    return this.httpClient.post<ProductVO>(this.targeBasetUrl, JSON.stringify(postData), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+
   // Error-Handling
   errorHandler(error) {
     let errorMessage = '';

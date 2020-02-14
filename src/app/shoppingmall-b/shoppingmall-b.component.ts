@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { ProductService } from 'src/app/my-services/product.service';
 import { ProductVO } from 'src/app/my-value-objects/ProductVO';
 
@@ -12,16 +17,30 @@ export class ShoppingmallBComponent implements OnInit {
   prodIdVal: Number = 0;
   productsList: Array<Object> = [];
 
-  constructor(private productService: ProductService) { }
+  myForm: FormGroup;
+
+  constructor(private productService: ProductService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
+    // ----------------------------------------------------------------------
     // 查全部 json-server上的資料 ( ProductService )
     this.productService.getProducts().subscribe((cbData: ProductVO[]) => {
       // console.log('cbData >>> ' , cbData);
       this.productsList = cbData;
     })
+    // ----------------------------------------------------------------------
+
+    // model-driven-form
+    this.myForm = this.fb.group({
+      prodName: ['薩爾達傳說DX', [Validators.required]],
+      prodPrice: ['1650', [Validators.required]],
+      quantity: ['3', [Validators.required, Validators.minLength(1)]],
+      isRedirectToPage: ['NO'] // Radio Button
+    });
+
   }
 
+  // 查詢
   doQueryProduct(_prodId: Number): void {
 
     // alert('_prodId >>>' + _prodId);
@@ -58,6 +77,7 @@ export class ShoppingmallBComponent implements OnInit {
     } // end of else
   }
 
+  // 刪除
   doDeleteProduct(_prodId: Number): void {
     if (_prodId.toString().trim() == '') {
       alert(` === 請輸入要刪除的商品ID === `);
@@ -66,7 +86,7 @@ export class ShoppingmallBComponent implements OnInit {
     if (confirm(`確定刪除商品嗎?(id = ${_prodId})`)) {
       this.productService.deleteProductById(_prodId)
         .subscribe(
-          (res : Response) => {
+          (res: Response) => {
 
             // 1.找到此prodId在array的index
             let targetIdx = this.productsList.findIndex((elem: ProductVO) => {
@@ -81,9 +101,31 @@ export class ShoppingmallBComponent implements OnInit {
             // console.error('err >>>' , err);
             alert(`無商品 id = ${_prodId} 無法刪除!`);
           },
-        );
+      );
     }
 
+  }
+
+  // 新增
+  doSubmit(): void {
+    alert(`========== doSubmit ===========`)
+    console.log('myForm >>> ', this.myForm);
+    this.productService.createProduct(this.myForm.value).subscribe(res => {
+      alert("新增成功！")
+
+      // ----------------------------------------------------------------------
+      // 查全部 json-server上的資料 ( ProductService )
+      this.productService.getProducts().subscribe((cbData: ProductVO[]) => {
+        // console.log('cbData >>> ' , cbData);
+        this.productsList = cbData;
+      })
+      // ----------------------------------------------------------------------
+
+      if (this.myForm.value.isRedirectToPage == 'YES') {
+        this.router.navigate(['poems', 'poem1']); // redirect to 滿江紅
+      }
+
+    });
   }
 
 }
