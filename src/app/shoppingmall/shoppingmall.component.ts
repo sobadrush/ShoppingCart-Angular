@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from "../../environments/environment";
-import { FakeDataService } from '../fake-data.service';
+import { FakeDataService } from '../my-services/fake-data.service';
 
 @Component({
   selector: 'app-shoppingmall',
