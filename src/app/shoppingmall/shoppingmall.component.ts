@@ -10,6 +10,7 @@ import { FakeDataService } from '../fake-data.service';
 export class ShoppingmallComponent implements OnInit {
 
   productsList : Array<Object> = [];
+  selectedRowId : Number = undefined;
 
   constructor(fakeDataService : FakeDataService) {
 
@@ -33,6 +34,7 @@ export class ShoppingmallComponent implements OnInit {
     console.log(` >>> this.productsList `, this.productsList);
   }
 
+  // 字體Highlight
   doHighlight(_event: MouseEvent, _item: any) : void {
     // alert(`============ 熱銷商品 =============`);
     // console.log('_event >>> ' , _event);
@@ -47,8 +49,14 @@ export class ShoppingmallComponent implements OnInit {
 
   }
 
+  // 字體還原
   clearHighlight($td : HTMLTableCellElement) : void {
     $td.style.fontSize = '20px';
   }
 
+  //
+  doSelectRow(_selectedRowId : Number) : void {
+    // console.log('_selectedRowId >>> ' , _selectedRowId);
+    this.selectedRowId = _selectedRowId;
+  }
 }

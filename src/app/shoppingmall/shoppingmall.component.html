@@ -3,11 +3,11 @@
 
 {{productsList | json}}
 
-<hr/>
-<hr/>
+<hr/><hr/>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></script>
 
+<h2>MouseEnter/MouseLeave特效</h2>
 <table class="table table-hover" border="1">
   <thead>
     <tr class="table-info">
@@ -24,6 +24,28 @@
         {{item.prodName}}
         <span style="color:red;" *ngIf="item.quantity <= 10">熱銷!!!</span>
       </td>
+      <td>{{item.prodPrice}} 元</td>
+      <td>{{item.quantity}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/><hr/>
+
+<h2>Hightlight click選擇到的ROW</h2>
+<table class="table table-hover" border="1">
+  <thead>
+    <tr class="table-info">
+      <th scope="col">商品編號</th>
+      <th scope="col">商品名稱</th>
+      <th scope="col">商品價格</th>
+      <th scope="col">商品庫存</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of productsList; let idx = index;" (click)="doSelectRow(idx)" [ngClass]="{'highlightRow' : (selectedRowId == idx) }">
+      <td>{{idx + 1}}</td>
+      <td>{{item.prodName}}</td>
       <td>{{item.prodPrice}} 元</td>
       <td>{{item.quantity}}</td>
     </tr>
