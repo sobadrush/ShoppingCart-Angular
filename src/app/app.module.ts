@@ -14,6 +14,7 @@ import { MyPoem3Component } from './my-poem3/my-poem3.component';
 import { RouterParamTestComponent } from './router-param-test/router-param-test.component';
 import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
 import { ShoppingmallBComponent } from './shoppingmall-b/shoppingmall-b.component';
+import { ShoppingmallCComponent } from './shoppingmall-c/shoppingmall-c.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ShoppingmallBComponent } from './shoppingmall-b/shoppingmall-b.componen
     MyPoem3Component,
     RouterParamTestComponent,
     ShoppingmallComponent,
-    ShoppingmallBComponent
+    ShoppingmallBComponent,
+    ShoppingmallCComponent
   ],
   imports: [
     BrowserModule,
