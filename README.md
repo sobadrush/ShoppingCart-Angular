@@ -1,5 +1,9 @@
 # ShoppingCartAngular
 
+## 用json-server模擬後端：
+指令：json-server.cmd -w src\app\json-server-data\db.json
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
