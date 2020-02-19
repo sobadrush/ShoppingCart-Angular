@@ -1,9 +1,19 @@
 
-<div style="border: 2px solid black; width: 20rem; height: 20rem;">
+<div style="border: 2px solid black; width: 40rem; height: 50rem; padding: 3rem;">
   <p style="color:black;">my-paraent works!</p>
 
-  <button type="button" (click)="doClick()">點我</button>
 
-  <app-my-child></app-my-child>
+  <button type="button" (click)="doClick()">點我( 測試 ＠ViewChild )</button>
+
+  <br><br><br><br><br>
+
+  stringInParent = {{ stringInParent }}
+
+  <br><br><br>
+
+  <img src="../../../assets/img/日出.png" style="width: 5em;" alt="日出" *ngIf="sunFlag == true"/>
+  <img src="../../../assets/img/日落.jpg" style="width: 5em;" alt="日落" *ngIf="sunFlag == false"/>
+
+  <app-my-child [paramFromParent]="stringInParent" (myEmitter)="doHandleEventFromChild($event)" ></app-my-child>
 
 </div>
