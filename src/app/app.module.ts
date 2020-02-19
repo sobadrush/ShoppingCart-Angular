@@ -15,6 +15,7 @@ import { RouterParamTestComponent } from './router-param-test/router-param-test.
 import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
 import { ShoppingmallBComponent } from './shoppingmall-b/shoppingmall-b.component';
 import { ShoppingmallCComponent } from './shoppingmall-c/shoppingmall-c.component';
+import { MyTestViewChildComponent } from './my-test-view-child/my-test-view-child.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ShoppingmallCComponent } from './shoppingmall-c/shoppingmall-c.componen
     RouterParamTestComponent,
     ShoppingmallComponent,
     ShoppingmallBComponent,
-    ShoppingmallCComponent
+    ShoppingmallCComponent,
+    MyTestViewChildComponent
   ],
   imports: [
     BrowserModule,
