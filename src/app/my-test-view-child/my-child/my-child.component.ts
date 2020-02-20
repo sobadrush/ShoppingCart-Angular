@@ -12,8 +12,11 @@ export class MyChildComponent implements OnInit {
   @Input()
   paramFromParent: string;
 
+  // @Output()
+  // private myEmitter = new EventEmitter<boolean>();
+
   @Output()
-  private myEmitter = new EventEmitter<boolean>();
+  private myEmitter = new EventEmitter<any>();
 
   isSunRaise: boolean = false;
 
@@ -22,10 +25,17 @@ export class MyChildComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // doClickBtn(): void {
+  //   this.isSunRaise = !this.isSunRaise;
+  //   alert(`this.isSunRaise = ${this.isSunRaise}`);
+  //   this.myEmitter.emit(this.isSunRaise);
+  // }
+
   doClickBtn(): void {
     this.isSunRaise = !this.isSunRaise;
     alert(`this.isSunRaise = ${this.isSunRaise}`);
-    this.myEmitter.emit(this.isSunRaise);
+    let emitData : any = { "isSunRaise" : this.isSunRaise , "others" : "其他參數s" };
+    this.myEmitter.emit(emitData);
   }
 
 }

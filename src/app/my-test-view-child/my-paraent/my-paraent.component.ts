@@ -25,10 +25,18 @@ export class MyParaentComponent implements OnInit {
     alert(`Child中的變數( 透過 ＠ViewChile ) = ` + this.childBeSeen.testStr);
   }
 
-  doHandleEventFromChild(isSunRaise: boolean): void{
-    console.log(`MyParaentComponent isSunRaise >>> ` , isSunRaise);
-    console.log("%c %s", "color:red", `MyParaentComponent 來自 子元件的變數 isSunRaise >>> ${isSunRaise}`);
+  // doHandleEventFromChild(isSunRaise: boolean): void{
+  //   console.log(`MyParaentComponent isSunRaise >>> ` , isSunRaise);
+  //   console.log("%c %s", "color:red", `MyParaentComponent 來自 子元件的變數 isSunRaise >>> ${isSunRaise}`);
+  //   // --------------------
+  //   this.sunFlag = isSunRaise;
+  // }
+
+  doHandleEventFromChild(_paramFromChild: any): void{
+    console.log(`MyParaentComponent _paramFromChild >>> ` , _paramFromChild);
+    console.log("%c %s", "color:red", `MyParaentComponent 來自 子元件的變數 isSunRaise >>>`, _paramFromChild);
     // --------------------
-    this.sunFlag = isSunRaise;
+    this.sunFlag = _paramFromChild.isSunRaise;
   }
+
 }
