@@ -9,6 +9,7 @@ import { ShoppingmallComponent } from './shoppingmall/shoppingmall.component';
 import { ShoppingmallBComponent } from './shoppingmall-b/shoppingmall-b.component';
 import { ShoppingmallCComponent } from './shoppingmall-c/shoppingmall-c.component';
 import { MyTestViewChildComponent } from './my-test-view-child/my-test-view-child.component';
+import { TemplateRefVarComponent } from './template-ref-var/template-ref-var.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'shopping', component : ShoppingmallComponent }, // 購物商城 A
   { path: 'shoppingB', component : ShoppingmallBComponent }, // 購物商城 B
   { path: 'shoppingC', component : ShoppingmallCComponent }, // 購物商城 C
+  { path: 'gotoTemplateRefVar', component : TemplateRefVarComponent }, // 範本參考變數測試
   { path: '**', redirectTo: '/HomePage', pathMatch: 'full' }, // 萬用路由(一定要放在最後) → 轉到 HomePage → 達到防呆效果
 ];
 

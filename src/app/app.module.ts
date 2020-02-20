@@ -18,6 +18,7 @@ import { ShoppingmallCComponent } from './shoppingmall-c/shoppingmall-c.componen
 import { MyTestViewChildComponent } from './my-test-view-child/my-test-view-child.component';
 import { MyParaentComponent } from './my-test-view-child/my-paraent/my-paraent.component';
 import { MyChildComponent } from './my-test-view-child/my-child/my-child.component';
+import { TemplateRefVarComponent } from './template-ref-var/template-ref-var.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MyChildComponent } from './my-test-view-child/my-child/my-child.compone
     ShoppingmallCComponent,
     MyTestViewChildComponent,
     MyParaentComponent,
-    MyChildComponent
+    MyChildComponent,
+    TemplateRefVarComponent
   ],
   imports: [
     BrowserModule,
