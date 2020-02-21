@@ -1,0 +1,25 @@
+<p>same-level-pass-val works!</p>
+
+
+<ul>
+  <li>參考：https://blog.johnwu.cc/article/angular-4-services.html</li>
+  <li>參考：https://www.itdaan.com/tw/648c564a025d8c810f5bf84ee5dca17b</li>
+</ul>
+
+<br>
+
+<h2>說明</h2>
+<ul>
+  <li>(1) 建立module : ng g m myModule (此步非必要)</li>
+  <li>(2) 建立共享資料的service : ng g s shared</li>
+  <li>(3) 在 app.module.ts 中，import 這個自訂 MyModuleModule</li>
+  <li>(4) 撰寫 SharedService </li>
+  <li>(5) 在 CompAComponent 及 CompBComponent 中注入 SharedService </li>
+  <li>(6) 在 CompAComponent 中 click 時，將要傳遞的資料存入 SharedService </li>
+  <li>(7) 在 CompBComponent 中，ngOnInit時 subscribe SharedService 的 Observable物件 </li>
+  <li>(8) 在 CompBComponent 中，因為訂閱，所以會即時根據A傳給B的值進行變化 </li>
+  <li> 示意圖 <img src="../../assets/img/示意圖.png" alt="示意圖.png" style="width: 25rem;"> </li>
+</ul>
+
+<app-comp-a></app-comp-a>
+<app-comp-b></app-comp-b>

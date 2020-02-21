@@ -10,6 +10,7 @@ import { ShoppingmallBComponent } from './shoppingmall-b/shoppingmall-b.componen
 import { ShoppingmallCComponent } from './shoppingmall-c/shoppingmall-c.component';
 import { MyTestViewChildComponent } from './my-test-view-child/my-test-view-child.component';
 import { TemplateRefVarComponent } from './template-ref-var/template-ref-var.component';
+import { SameLevelPassValComponent } from './same-level-pass-val/same-level-pass-val.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   },
   { path: 'cartoon/:id', component : RouterParamTestComponent }, // 測試路由參數的元件
   { path: 'gotoViewChildTest', component : MyTestViewChildComponent }, // 測試 @ViewChild
+  { path: 'gotoSameLevelPassValTest', component : SameLevelPassValComponent }, // 測試 @ViewChild
   { path: 'shopping', component : ShoppingmallComponent }, // 購物商城 A
   { path: 'shoppingB', component : ShoppingmallBComponent }, // 購物商城 B
   { path: 'shoppingC', component : ShoppingmallCComponent }, // 購物商城 C

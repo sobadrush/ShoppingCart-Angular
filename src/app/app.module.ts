@@ -19,6 +19,10 @@ import { MyTestViewChildComponent } from './my-test-view-child/my-test-view-chil
 import { MyParaentComponent } from './my-test-view-child/my-paraent/my-paraent.component';
 import { MyChildComponent } from './my-test-view-child/my-child/my-child.component';
 import { TemplateRefVarComponent } from './template-ref-var/template-ref-var.component';
+import { MyModuleModule } from './my-module/my-module.module';
+import { SameLevelPassValComponent } from './same-level-pass-val/same-level-pass-val.component';
+import { CompAComponent } from './same-level-pass-val/comp-a/comp-a.component';
+import { CompBComponent } from './same-level-pass-val/comp-b/comp-b.component';
 
 @NgModule({
   declarations: [
@@ -36,14 +40,18 @@ import { TemplateRefVarComponent } from './template-ref-var/template-ref-var.com
     MyTestViewChildComponent,
     MyParaentComponent,
     MyChildComponent,
-    TemplateRefVarComponent
+    TemplateRefVarComponent,
+    SameLevelPassValComponent,
+    CompAComponent,
+    CompBComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MyModuleModule// 匯入自訂module (此module用來在同層元件間傳遞資料)
   ],
   providers: [],
   bootstrap: [AppComponent]
